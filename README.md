@@ -6,7 +6,7 @@
 
 ### O script usa a biblioteca selenium e o chrome como navegador para as verificações. Algumas funções exigem a versão mais recente do chrome. Como tal, certifique-se de que o navegador chrome é pelo menos a versão 97. Se não, então atualize o navegador (3 pontos no canto superior direito -> ajuda -> sobre o chrome). Baixe o chromedriver a partir da sua versão (https://chromedriver.chromium.org/downloads) e coloque na mesma pasta do script.
 
-Antes de executar o script, certifique-se de ter um logo da sua marca de extensão png do tamanho xx para comparar com as imagens dos perfis. O script é escrito para usuários do TikTok.
+Antes de executar o script, certifique-se de ter um logo da sua marca de extensão png do tamanho xx (mesmo tamanho das imagens dos perfis), para comparar com as imagens dos perfis. O script é escrito para usuários do TikTok.
 
 Se você não está tão familiarizado com python faça o seguinte:
 
@@ -18,7 +18,7 @@ Se você não está tão familiarizado com python faça o seguinte:
 
 4 - Executar o script. Ele deve começar com "Escreva sua pesquisa aqui" se funcionar corretamente. Meu método preferido é escrever "python script.py" no prompt de comando.
 
-5 - Após passar todas as informações solicitadas, como "digite o caminho do seu diretório atual" (caminho onde esta o seu script, ex: c:\users\teste), "Escreva o nome da imagem a ser comparada aqui"(exemplo.png), "digite o nome da pasta em que deseja guardar as imagens"(pasta onde baixara todas as imagens dos perfis), abrirá o Chrome onde solicitará que você faça o captcha.
+5 - Após passar todas as informações solicitadas, como "digite o caminho do seu diretório atual" (caminho onde esta o seu script, ex: c:\users\teste), "Escreva o nome da imagem a ser comparada aqui"(exemplo.png), "digite o nome da pasta em que deseja guardar as imagens"(pasta que será criada e baixa todas as imagens dos perfis), abrirá o Chrome onde solicitará que você faça o captcha.
 
 6 - Após passar pelo captcha, no próprio prompt ele trara todos os usernames baseados na sua pesquisa.
 
