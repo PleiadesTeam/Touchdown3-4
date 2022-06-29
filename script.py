@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import imageio.plugins.pillow
 import os
 from importlib.resources import path
-from matplotlib import image
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import requests 
 import csv 
 import glob
-from selenium.webdriver.chrome.options import Options
 import time
-from time import sleep
-from random import randint
-from fake_useragent import UserAgent
 import matplotlib.pyplot as plt
 from skimage import io, img_as_float
 
@@ -26,15 +20,13 @@ from skimage.io import imread
 from skimage.util import img_as_ubyte
 from tqdm import tqdm
 import shutil
-from PIL import Image
-import pandas as pd
 
 
 
 usuarios = input("escreva sua pesquisa aqui: ")
 diretorio = input ("Digite o caminho do seu diretório atual: ")
 imagem_cliente = input("Escreva o nome da imagem a ser comparada aqui: ")
-pasta_nova = input ("Digite o nome da pasta: ")
+pasta_nova = input ("Digite o nome da pasta a ser criada: ")
 ## Options para desabilitar o controle de automação e os infobars.
 # opts = Options()
 
@@ -64,7 +56,12 @@ for username in soup.find_all('p', attrs={'data-e2e':'search-user-unique-id'}):
     usuarios = username.string 
     f= open("lista_usuarios.csv", "a", newline="")
     writer=csv.writer(f, delimiter=' ')
-    writer.writerow(['user: ', usuarios])
+    ##comparação de usuarios verificados para adicionar ao csv
+    if usuarios:
+        writer.writerow(['user: ', usuarios])
+    else: 
+        usuarios = "$0"
+        writer.writerow(['user verificado: '])  
     f.close()
 
 ## busca as urls das imagens salva no csv e faz o download da imagem
@@ -73,6 +70,7 @@ for screen in soup.find_all('img',  attrs={'loading':'lazy'}):
     g= open("lista_usuarios.csv", "a", newline="")
     writer=csv.writer(g, delimiter=' ')
     writer.writerow({'url: '+ endereco_imagem})
+    ##baixa as imagens e insere no csv
     filename= endereco_imagem.split("-expires")[-1] + '.jpg'
     g = open(filename,'wb')   # <---- edit made here
     g.write((requests.get(endereco_imagem).content))
@@ -81,7 +79,8 @@ driver.close()
 
 def loadImage(filename):
     return io.imread(filename)
-   
+
+##cria a pasta e move as imagens baixadas
 caminho_pasta_nova = f'{diretorio}/{pasta_nova}'
 try :
     os.mkdir(caminho_pasta_nova)
@@ -106,6 +105,7 @@ print("Arquivos movidos com sucesso!")
 
 time.sleep(3)
 
+## faz a comparação das imagens
 def plot(i1, i2, diff, ssim):
     fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(10, 4), sharex=True, sharey=True)
     ax = axes.ravel()
@@ -160,6 +160,7 @@ if __name__ == "__main__":
         score, i1, i2, diff = compare(imagem_cliente, d[i])
         # plot(i1, i2, diff, score)
         if score >= 0.55:
+            ##insere as imagens suspeitas no CSV
             h= open("lista_usuarios.csv", "a", newline="")
             writer=csv.writer(h,  delimiter=' ')
             writer.writerow(['Imagem suspeita: ', i, d[i]])
