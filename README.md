@@ -20,7 +20,7 @@ Se você não está tão familiarizado com python faça o seguinte:
 
 5 - Após passar todas as informações solicitadas, como "digite o caminho do seu diretório atual" (caminho onde esta o seu script, ex: c:\users\teste), "Escreva o nome da imagem a ser comparada aqui"(exemplo.png), "digite o nome da pasta em que deseja guardar as imagens"(pasta que será criada e baixa todas as imagens dos perfis), abrirá o Chrome onde solicitará que você faça o captcha.
 
-6 - Após passar pelo captcha, no próprio prompt ele trara todos os usernames baseados na sua pesquisa.
+6 - Após passar pelo captcha, no próprio prompt ele trará todos os usernames baseados na sua pesquisa.
 
 7 - Após a execução do script verifique que ele gerou um arquivo CSV com todas as informações, usuarios, url das imagens dos perfis e as imagens suspeitas. Ou seja, todas as imagens e perfis que são mais parecidas com o logo da sua marca, a partir disso você terá controle de quais perfis estão usando o nome e logo da sua marca.
 
