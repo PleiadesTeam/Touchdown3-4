@@ -6,7 +6,7 @@
 
 ### O script usa algumas bibliotecas e o chrome como navegador para as verificações. Algumas funções exigem a versão mais recente do chrome. Como tal, certifique-se de que o navegador chrome é pelo menos a versão 97. Se não, então atualize o navegador (3 pontos no canto superior direito -> ajuda -> sobre o chrome). Baixe o chromedriver a partir da sua versão (https://chromedriver.chromium.org/downloads) e coloque na mesma pasta do script.
 
-Antes de executar o script, certifique-se de ter um logo da sua marca de extensão png do tamanho xx (mesmo tamanho das imagens dos perfis), para comparar com as imagens dos perfis. O script é escrito para usuários do TikTok.
+Antes de executar o script, certifique-se de ter um logo da sua marca de extensão png do tamanho 100px/100px (mesmo tamanho das imagens dos perfis), para comparar com as imagens dos perfis. O script é escrito para usuários do TikTok.
 
 Se você não está tão familiarizado com python faça o seguinte:
 
